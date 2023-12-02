@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ThemeToggle } from "../theme/ThemeToggle";
 import { Typography } from "../ui/Typography";
 import Image from "next/image";
+import { LoginButton } from "../features/auth/LoginButton";
+import { AuthButton } from "../features/auth/AuthButton";
 
 export function Header() {
   return (
@@ -22,6 +24,7 @@ export function Header() {
 
         <div className="flex items-center justify-end flex-1 space-x-4">
           <nav className="flex items-center space-x-1">
+            <AuthButton />
             <ThemeToggle />
           </nav>
         </div>
