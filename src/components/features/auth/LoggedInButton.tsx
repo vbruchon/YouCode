@@ -3,7 +3,7 @@
 import { Session } from "next-auth";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { LogOut } from "lucide-react";
+import { LogOut, User2 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { Loader } from "@/components/ui/loader";
 import { useMutation } from "@tanstack/react-query";
@@ -43,7 +43,7 @@ export const LoggedInButton = (props: LoggedInButtonProps) => {
     <DropdownMenu>
       <AlertDialog>
         <DropdownMenuTrigger>
-          <div className="flex items-center p-2 bg-transparent border border-gray-500 rounded-lg shadow-sm hover:bg-accent hover:text-accent-foreground hover:cursor-pointer">
+          <div className="flex items-center p-2 bg-transparent border border-gray-500 rounded-lg shadow-sm hover:cursor-pointer hover:bg-accent hover:text-accent-foreground">
             <Avatar className="w-8 h-8 mr-4">
               <AvatarFallback>{props.user?.name?.[0]}</AvatarFallback>
               {props.user.image && (
@@ -57,10 +57,15 @@ export const LoggedInButton = (props: LoggedInButtonProps) => {
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="flex flex-col items-center p-2">
-          <DropdownMenuItem className="p-4">
-            <Link href={"./account"}>My account</Link>
+          <DropdownMenuItem className="p-4" asChild>
+            <Link href="/account">
+              <User2 className="mr-2" size={16} />
+              My Account
+            </Link>
           </DropdownMenuItem>
+
           <DropdownMenuSeparator />
+
           <AlertDialogTrigger asChild>
             <DropdownMenuItem className="p-2 mb-2 bg-destructive">
               <LogOut size={18} className="mr-4" />
