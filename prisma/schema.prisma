@@ -50,10 +50,15 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  isAdmin       Boolean   @default(false)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
+
   accounts      Account[]
   sessions      Session[]
+  ownedCourses  CourseOnUser[]
+  createdCourse Course[]
+  lessons       LessonOnUser[]
 }
 
 model VerificationToken {
@@ -63,4 +68,68 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verificationtokens")
+}
+
+model Course {
+  id           String   @id @default(cuid())
+  name         String
+  presentation String //markdown
+  img          String
+  createdAt    DateTime @default(now())
+  creatorId    String
+
+  creator User           @relation(fields: [creatorId], references: [id])
+  lessons Lesson[]
+  users   CourseOnUser[]
+}
+
+model Lesson {
+  id        String      @id @default(cuid())
+  name      String
+  rank      Int //represents the order of the lessons
+  content   String //markdown
+  state     LessonState @default(HIDDEN)
+  createdAt DateTime    @default(now())
+  courseId  String
+
+  course Course         @relation(fields: [courseId], references: [id])
+  users  LessonOnUser[]
+}
+
+enum Progress {
+  NOT_STARTED
+  INPROGRESS
+  COMPLETED
+}
+
+enum LessonState {
+  HIDDEN
+  PUBLISHED
+  PUBLIC
+}
+
+model LessonOnUser {
+  id        String   @id @default(cuid())
+  userId    String
+  lessonId  String
+  progress  Progress @default(NOT_STARTED)
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  lesson Lesson @relation(fields: [lessonId], references: [id])
+
+  @@unique([userId, lessonId])
+}
+
+model CourseOnUser {
+  id         String    @id @default(cuid())
+  userId     String
+  courseId   String
+  createdAt  DateTime  @default(now())
+  canceledAt DateTime?
+
+  user   User   @relation(fields: [userId], references: [id])
+  course Course @relation(fields: [courseId], references: [id])
+
+  @@unique([userId, courseId])
 }
