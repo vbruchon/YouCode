@@ -1,14 +1,21 @@
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div>
-      <Card>
-        <CardHeader>
-          <CardTitle>Hello World</CardTitle>
-        </CardHeader>
-      </Card>
-    </div>
-  );
+  return <div className="min-h-screen">Hello world</div>;
 }
