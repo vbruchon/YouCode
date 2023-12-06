@@ -3,7 +3,7 @@
 import { Session } from "next-auth";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { LogOut, User2 } from "lucide-react";
+import { LogOut, ShieldCheck, User2 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { Loader } from "@/components/ui/loader";
 import { useMutation } from "@tanstack/react-query";
@@ -61,6 +61,14 @@ export const LoggedInButton = (props: LoggedInButtonProps) => {
             <Link href="/account">
               <User2 className="mr-2" size={16} />
               My Account
+            </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator />
+          <DropdownMenuItem className="p-4" asChild>
+            <Link href="/admin">
+              <ShieldCheck className="mr-2" size={16} />
+              Admin Page
             </Link>
           </DropdownMenuItem>
 
