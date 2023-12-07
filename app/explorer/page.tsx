@@ -4,10 +4,6 @@ import {
   LayoutHeader,
   LayoutTitle,
 } from "@/components/layout/layout";
-import { Typography } from "@/components/ui/Typography";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { prisma } from "@/lib/db/prisma";
 import Link from "next/link";
 import React from "react";
 import { CourseCard } from "../courses/CourseCard";

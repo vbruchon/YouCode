@@ -21,10 +21,24 @@ export function Header() {
             {SiteConfig.title}
           </Typography>
         </div>
-        <div className="flex justify-center flex-1">
-          <Link href="/explorer">Explorer</Link>
-        </div>
-        <div className="flex items-center justify-end flex-1 space-x-4">
+
+        <div className="flex items-center justify-end flex-1 space-x-12">
+          <div className="flex justify-center gap-4">
+            <Typography
+              as={Link}
+              href="/explorer"
+              className="text-muted-foreground hover:text-foreground"
+            >
+              Explorer
+            </Typography>
+            <Typography
+              as={Link}
+              href="/courses"
+              className="text-muted-foreground hover:text-foreground"
+            >
+              Courses
+            </Typography>
+          </div>
           <nav className="flex items-center space-x-1">
             <AuthButton />
             <ThemeToggle />
