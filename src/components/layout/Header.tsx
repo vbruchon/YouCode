@@ -10,7 +10,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container flex items-center h-16 space-x-4 sm:justify-between sm:space-x-0">
-        <div className="flex items-center gap-2 md:gap-10">
+        <div className="flex items-center flex-1 gap-2 md:gap-10">
           <Image
             src={"/images/you-code.svg"}
             width={50}
@@ -21,7 +21,9 @@ export function Header() {
             {SiteConfig.title}
           </Typography>
         </div>
-
+        <div className="flex justify-center flex-1">
+          <Link href="/explorer">Explorer</Link>
+        </div>
         <div className="flex items-center justify-end flex-1 space-x-4">
           <nav className="flex items-center space-x-1">
             <AuthButton />
