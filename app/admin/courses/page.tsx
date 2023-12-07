@@ -15,12 +15,18 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { getRequiredAuthSession } from "@/lib/auth";
 import { prisma } from "@/lib/db/prisma";
 import Link from "next/link";
 import React from "react";
 
 export default async function CoursesPage() {
-  const courses = await prisma.course.findMany();
+  const session = await getRequiredAuthSession();
+  const courses = await prisma.course.findMany({
+    where: {
+      creatorId: session.user.id,
+    },
+  });
 
   return (
     <Layout>

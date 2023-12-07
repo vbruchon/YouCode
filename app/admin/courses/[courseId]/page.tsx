@@ -125,15 +125,15 @@ async function CoursePage({
           <CardFooter>
             <Link
               className={buttonVariants({ variant: "outline", size: "lg" })}
-              href="/admin/courses/courseId/update"
+              href={`/admin/courses/${course.id}/edit`}
             >
-              Update Course
+              Edit
             </Link>
             <Link
               className={buttonVariants({ variant: "outline", size: "lg" })}
-              href="/admin/courses/courseId/lessons/update"
+              href={`/admin/courses/${course.id}/lessons`}
             >
-              Update Lessons
+              Edit Lessons
             </Link>
           </CardFooter>
         </Card>
