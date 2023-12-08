@@ -1,6 +1,4 @@
 import { prisma } from "@/lib/db/prisma";
-import { getCourse } from "../course.query";
-import { $Enums } from "@prisma/client";
 
 export const getCourseLessons = async ({
   courseId,

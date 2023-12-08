@@ -7,14 +7,6 @@ import {
   LayoutTitle,
 } from "@/components/layout/layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { getRequiredAuthSession } from "@/lib/auth";
 import { notFound } from "next/navigation";
 import { LessonItem } from "./LessonItem";
@@ -52,9 +44,3 @@ async function LessonsPage({ params }: { params: { courseId: string } }) {
 }
 
 export default LessonsPage;
-
-/* <div>
-      {lessons.map((lesson) => (
-        <p>{lesson.name}</p>
-      ))}
-    </div> */

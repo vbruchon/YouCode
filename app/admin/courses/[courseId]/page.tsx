@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/table";
 import { getRequiredAuthSession } from "@/lib/auth";
 import React from "react";
-import { getCourse } from "./course.query";
+import { getAdminCourse } from "./admin-course.query";
 import { Typography } from "@/components/ui/Typography";
 import Link from "next/link";
 import {
@@ -30,7 +30,7 @@ import { CircleUser, User2 } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { CoursePaginationButton } from "../../../../src/components/features/pagination/PaginationButton";
 
-async function CoursePage({
+async function AdminCoursePage({
   params,
   searchParams,
 }: {
@@ -39,7 +39,7 @@ async function CoursePage({
 }) {
   const page = Number(searchParams.page ?? 1);
   const session = await getRequiredAuthSession();
-  const course = await getCourse({
+  const course = await getAdminCourse({
     courseId: params.courseId,
     userId: session.user.id,
     userPage: page,
@@ -142,66 +142,4 @@ async function CoursePage({
   );
 }
 
-export default CoursePage;
-
-/* 
-return (
-    <Layout>
-      <LayoutHeader>
-        <LayoutTitle className="flex items-end">
-          {course?. && (
-            <Image
-              src={course?.img}
-              alt={course?.name}
-              width={100}
-              height={100}
-              className="mr-6"
-            />
-          )}
-          {course?.name}
-        </LayoutTitle>
-      </LayoutHeader>
-      <LayoutContent className="flex flex-wrap items-center gap-6">
-        <p>
-          Courses created At : {course?.createdAt.toLocaleDateString()}
-        </p>
-        <Card className="w-1/6">
-          <CardContent className="p-4">{users.length} users join</CardContent>
-        </Card>
-        <Card className="w-1/6">
-          <CardContent className="p-4">
-            {lessonOnCourse.length} lessons
-          </CardContent>
-        </Card>
-      </LayoutContent>
-    </Layout>
-  );
-
-- Afficher le nombre d'élèves quit on rejoint la formation
-- Afficher la date de création de la formation
-- Afficher le nombre de lessons de la formation
-- Afficher un bouton pour modifier la formation ainsi que les leçons
-
-- Créer un fichier `course.query.ts` pour gérer la query prisma
-- Créer un fichier page dans `admin/courses/[coursier]/page.tsx` pour afficher le user
-- Utilise le composant Table pour afficher la liste des users
-- Utilise les `searchParams` pour gérer les pages
-- Ajoute des données de base avec le seed de `Prisma` afin d’avoir un cours à afficher avec des users
-
-
-
-
-
-<Table>
-              <TableHeader>
-                <TableHead>Name</TableHead>
-              </TableHeader>
-              <TableBody>
-                {users.map((user) => (
-                  <TableRow>
-                    <TableCell>{user.name}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-*/
+export default AdminCoursePage;

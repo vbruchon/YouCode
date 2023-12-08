@@ -25,10 +25,6 @@ async function UserCoursesPage() {
       <LayoutHeader>
         <LayoutTitle>My courses</LayoutTitle>
       </LayoutHeader>
-      <LayoutDescription>
-        Notre client souhaite avoir la liste de tous les cours qu’il possède et
-        qu’il a rejoints.
-      </LayoutDescription>
       <LayoutContent className="grid grid-cols-1 gap-4 md:grid-cols-2 ">
         {userCourses.map((course) => (
           <CourseCard key={course.id} course={course} />
