@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { getRequiredAuthSession } from "@/lib/auth";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
@@ -62,6 +63,7 @@ export default async function SettingProfilPage({
                   },
                   data: safeData.data,
                 });
+                revalidatePath("/account");
                 redirect("/account");
               }}
             >

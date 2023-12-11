@@ -7,7 +7,7 @@ export const getAdminCourse = async ({
 }: {
   courseId: string;
   userId: string;
-  userPage: number;
+  userPage?: number;
 }) => {
   const courses = await prisma.course.findUnique({
     where: { creatorId: userId, id: courseId },
@@ -18,7 +18,7 @@ export const getAdminCourse = async ({
       presentation: true,
       users: {
         take: 5,
-        skip: Math.max(0, userPage * 5),
+        skip: Math.max(0, (userPage ?? 0) * 5),
         select: {
           canceledAt: true,
           id: true,

@@ -53,7 +53,7 @@ export default async function AccountPage() {
           </Link>
           <Link
             className={buttonVariants({ variant: "outline", size: "lg" })}
-            href="/account/admin"
+            href="/admin"
           >
             Admin
           </Link>
