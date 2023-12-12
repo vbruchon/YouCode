@@ -40,7 +40,7 @@ export default async function EditCoursePage({
   return (
     <Layout>
       <LayoutHeader>
-        <LayoutTitle>Edit Course Page</LayoutTitle>
+        <LayoutTitle>{'"' + course.name + '"'} edit page </LayoutTitle>
       </LayoutHeader>
       <LayoutContent>
         <Card className="mt-8 bg-background">

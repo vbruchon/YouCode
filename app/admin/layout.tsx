@@ -1,7 +1,9 @@
-import BackButton from "@/components/layout/BackButton";
+import BackButton from "@/components/utils/BackButton";
+import BreadCrumb from "@/components/utils/BreadCrumb";
+
 import { PropsWithChildren } from "react";
 
-export default function AdminLayout({ children }: PropsWithChildren) {
+export default async function AdminLayout({ children }: PropsWithChildren) {
   return (
     <>
       <div className="w-full border-b border-border/20">
@@ -11,6 +13,7 @@ export default function AdminLayout({ children }: PropsWithChildren) {
           </BackButton>
         </div>
       </div>
+      <BreadCrumb />
       {children}
     </>
   );
