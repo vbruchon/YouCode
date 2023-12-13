@@ -61,7 +61,7 @@ export const CourseForm = ({ defaultValue }: CourseFormProps) => {
         name="img"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Username</FormLabel>
+            <FormLabel>Image</FormLabel>
             <FormControl>
               <Input placeholder="https://googleimage.com" {...field} />
             </FormControl>
