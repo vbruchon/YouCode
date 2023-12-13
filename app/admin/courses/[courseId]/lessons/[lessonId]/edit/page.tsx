@@ -9,21 +9,16 @@ import { prisma } from "@/lib/db/prisma";
 import React from "react";
 import { LessonForm } from "./LessonForm";
 import { notFound } from "next/navigation";
+import { getRequiredAuthSession } from "@/lib/auth";
+import { getAdminLesson } from "./lesson.query";
 
 async function LessonIdPAge({ params }: { params: { lessonId: string } }) {
   console.log(params);
 
-  const lesson = await prisma.lesson.findUnique({
-    where: {
-      id: params.lessonId,
-    },
-    select: {
-      name: true,
-      id: true,
-      state: true,
-      courseId: true,
-    },
-  });
+  const session = await getRequiredAuthSession();
+
+  const lesson = await getAdminLesson(params.lessonId, session.user.id);
+
   if (!lesson) notFound();
 
   return (

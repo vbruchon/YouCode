@@ -12,7 +12,7 @@ import {
   LESSON_STATE,
   LessonFormSchema,
   LessonsFormSchema,
-} from "./lesson.shema";
+} from "../../../../../../../src/schema/lesson.shema";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
@@ -24,7 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { lessonActionEdit } from "./lesson.action";
+import { lessonActionEdit } from "../../../../../../../src/action/lesson.action";
 import { toast } from "sonner";
 
 export type LessonFormProps = {

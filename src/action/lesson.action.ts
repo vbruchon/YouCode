@@ -1,6 +1,6 @@
 "use server";
 import { ServerError, authentificatedAction } from "@/lib/safe-action";
-import { LessonFormSchema } from "./lesson.shema";
+import { LessonFormSchema } from "../schema/lesson.shema";
 import { z } from "zod";
 import { prisma } from "@/lib/db/prisma";
 

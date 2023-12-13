@@ -10,15 +10,17 @@ import {
   FormMessage,
   useZodForm,
 } from "@/components/ui/form";
-import { CourseFormSchema } from "./course.schema";
+import { CourseFormSchema } from "../../../../../src/schema/course.schema";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { courseActionEdit } from "./course.action";
+import {
+  courseActionEdit,
+  courseActionCreate,
+} from "../../../../../src/action/course.action";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { courseActionCreate } from "../../new/course.action";
 
 export type CourseFormProps = {
   defaultValue?: CourseFormSchema & {
