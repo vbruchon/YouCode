@@ -18,6 +18,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { courseActionEdit } from "./course.action";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { courseActionCreate } from "../../new/course.action";
 
 export type CourseFormProps = {
   defaultValue?: CourseFormSchema & {
@@ -34,26 +35,26 @@ export const CourseForm = ({ defaultValue }: CourseFormProps) => {
   return (
     <Form
       form={form}
+      className="flex flex-col gap-4"
       onSubmit={async (values) => {
         console.log(values);
-        if (defaultValue?.id) {
-          const { data, serverError } = await courseActionEdit({
-            courseId: defaultValue.id,
-            data: values,
-          });
 
-          if (data) {
-            toast.success(data);
-            router.push(`/admin/courses/${defaultValue.id}`);
-            router.refresh();
-            return;
-          }
-          toast.error("Some error occured", {
-            description: serverError,
-          });
-        } else {
-          //on créer un cours
+        const { data, serverError } = defaultValue?.id
+          ? await courseActionEdit({
+              courseId: defaultValue.id,
+              data: values,
+            })
+          : await courseActionCreate(values);
+
+        if (data) {
+          toast.success(data.message);
+          router.push(`/admin/courses/${data.course.id}`);
+          router.refresh();
+          return;
         }
+        toast.error("Some error occured", {
+          description: serverError,
+        });
       }}
     >
       <FormField
@@ -100,7 +101,9 @@ export const CourseForm = ({ defaultValue }: CourseFormProps) => {
           </FormItem>
         )}
       />
-      <Button type="submit">Submit</Button>
+      <Button type="submit" className="w-1/5 mx-auto">
+        Submit
+      </Button>
     </Form>
   );
 };

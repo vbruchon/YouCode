@@ -11,13 +11,13 @@ const CourseActionEditProps = z.object({
 export const courseActionEdit = authentificatedAction(
   CourseActionEditProps,
   async (props, { userId }) => {
-    await prisma.course.update({
+    const course = await prisma.course.update({
       where: {
         id: props.courseId,
         creatorId: userId,
       },
       data: props.data,
     });
-    return "Course update successfully";
+    return { message: "Course update successfully", course };
   }
 );
