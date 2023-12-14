@@ -10,14 +10,14 @@ import React from "react";
 import { LessonForm } from "./LessonForm";
 import { notFound } from "next/navigation";
 import { getRequiredAuthSession } from "@/lib/auth";
-import { getAdminLesson } from "./lesson.query";
+import { getAdminLessonDetails } from "./lesson.query";
 
 async function LessonIdPAge({ params }: { params: { lessonId: string } }) {
   console.log(params);
 
   const session = await getRequiredAuthSession();
 
-  const lesson = await getAdminLesson(params.lessonId, session.user.id);
+  const lesson = await getAdminLessonDetails(params.lessonId, session.user.id);
 
   if (!lesson) notFound();
 

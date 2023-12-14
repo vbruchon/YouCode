@@ -2,11 +2,12 @@ import { z } from "zod";
 
 export const LESSON_STATE = ["HIDDEN", "PUBLIC", "PUBLISHED"] as const;
 
-//JS
+// JS
 export const LessonFormSchema = z.object({
   name: z.string().min(3).max(40),
   state: z.enum(LESSON_STATE),
+  courseId: z.string(),
 });
 
 //TS
-export type LessonsFormSchema = z.infer<typeof LessonFormSchema>;
+export type LessonFormSchema = z.infer<typeof LessonFormSchema>;

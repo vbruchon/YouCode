@@ -9,16 +9,17 @@ const LessonActionEditProps = z.object({
   lessonId: z.string(),
   data: LessonFormSchema,
 });
+
 export const lessonActionEdit = authentificatedAction(
   LessonActionEditProps,
   async (props) => {
-    await prisma.lesson.update({
+    const lesson = await prisma.lesson.update({
       where: {
         id: props.lessonId,
         courseId: props.courseId,
       },
       data: props.data,
     });
-    return "Lesson update successfully";
+    return { message: "Lesson update successfully", lesson };
   }
 );

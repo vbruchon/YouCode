@@ -34,13 +34,12 @@ export const CourseForm = ({ defaultValue }: CourseFormProps) => {
     defaultValues: defaultValue,
   });
   const router = useRouter();
+
   return (
     <Form
       form={form}
       className="flex flex-col gap-4"
       onSubmit={async (values) => {
-        console.log(values);
-
         const { data, serverError } = defaultValue?.id
           ? await courseActionEdit({
               courseId: defaultValue.id,

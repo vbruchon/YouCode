@@ -8,11 +8,6 @@ import {
   FormMessage,
   useZodForm,
 } from "@/components/ui/form";
-import {
-  LESSON_STATE,
-  LessonFormSchema,
-  LessonsFormSchema,
-} from "../../../../../../../src/schema/lesson.shema";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
@@ -24,11 +19,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { lessonActionEdit } from "../../../../../../../src/action/lesson.action";
 import { toast } from "sonner";
+import { LESSON_STATE, LessonFormSchema } from "@/schema/lesson.shema";
+import { lessonActionEdit } from "@/action/lesson.action";
 
 export type LessonFormProps = {
-  defaultValue?: LessonsFormSchema & {
+  defaultValue?: LessonFormSchema & {
     id: string;
     courseId: string;
   };
@@ -55,7 +51,7 @@ export const LessonForm = ({ defaultValue }: LessonFormProps) => {
           });
 
           if (data) {
-            toast.success(data);
+            toast.success(data.message);
             router.push(`/admin/courses/${defaultValue.courseId}/lessons/`);
             router.refresh();
             return;
