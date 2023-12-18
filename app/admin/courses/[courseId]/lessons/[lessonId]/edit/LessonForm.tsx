@@ -22,11 +22,13 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { LESSON_STATE, LessonFormSchema } from "@/schema/lesson.shema";
 import { lessonActionEdit } from "@/action/lesson.action";
+import { MarkdownEditor } from "../../mdx/MarkdownEditor";
 
 export type LessonFormProps = {
   defaultValue?: LessonFormSchema & {
     id: string;
     courseId: string;
+    content: string;
   };
 };
 
@@ -99,6 +101,20 @@ export const LessonForm = ({ defaultValue }: LessonFormProps) => {
           </FormItem>
         )}
       />
+      <FormField
+        control={form.control}
+        name="content"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Markdown Content:</FormLabel>
+            <FormControl>
+              <MarkdownEditor content={field.value} onChange={field.onChange} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
       <Button type="submit" className="w-1/5 mx-auto">
         Submit
       </Button>
