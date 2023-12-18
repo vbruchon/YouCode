@@ -27,11 +27,9 @@ async function CoursePage({ params }: { params: { courseId: string } }) {
 
   return (
     <Layout>
-      <LayoutHeader>
-        <LayoutTitle>Your Courses</LayoutTitle>
-      </LayoutHeader>
+      <LayoutHeader></LayoutHeader>
       <LayoutContent>
-        {course && <Course course={course}></Course>}
+        {course && <Course course={course} userId={session.user.id}></Course>}
       </LayoutContent>
     </Layout>
   );
