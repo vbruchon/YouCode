@@ -13,9 +13,10 @@ export const CoursePaginationButton = (props: CoursePaginationButtonProps) => {
   const router = useRouter();
 
   return (
-    <>
+    <div className="mt-2">
       {props.page > 0 && (
         <Button
+          variant={"secondary"}
           onClick={() => {
             const searchParams = new URLSearchParams({
               page: String(props.page - 1),
@@ -30,6 +31,7 @@ export const CoursePaginationButton = (props: CoursePaginationButtonProps) => {
 
       {props.page < props.totalPage - 1 && (
         <Button
+          variant={"secondary"}
           onClick={() => {
             const searchParams = new URLSearchParams({
               page: String(props.page + 1),
@@ -41,6 +43,6 @@ export const CoursePaginationButton = (props: CoursePaginationButtonProps) => {
           Next
         </Button>
       )}
-    </>
+    </div>
   );
 };

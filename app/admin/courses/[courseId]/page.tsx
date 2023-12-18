@@ -27,8 +27,18 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import { CircleUser, User2 } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { CoursePaginationButton } from "../../../../src/components/features/pagination/PaginationButton";
+import { prisma } from "@/lib/db/prisma";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Badge } from "@/components/ui/badge";
+import { ActionAcessButton } from "./ActionAccessButton";
 
 async function AdminCoursePage({
   params,
@@ -64,6 +74,8 @@ async function AdminCoursePage({
                 <TableRow>
                   <TableHead>image</TableHead>
                   <TableHead>email</TableHead>
+                  <TableHead>status</TableHead>
+                  <TableHead>actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -89,7 +101,26 @@ async function AdminCoursePage({
                         {user.email}
                       </Typography>
                     </TableCell>
-                    <TableCell></TableCell>
+                    <TableCell>
+                      <Badge variant="secondary">
+                        {user.canceled ? "Canceled" : "Active"}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger>
+                          <Button size={"sm"} variant={"secondary"}>
+                            Actions
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                          <ActionAcessButton
+                            courseId={params.courseId}
+                            user={user}
+                          />
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </TableCell>
                   </TableRow>
                 ))}
                 <CoursePaginationButton

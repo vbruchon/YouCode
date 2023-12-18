@@ -58,7 +58,7 @@ async function LessonsPage({ params }: { params: { courseId: string } }) {
                       rank: "aaazaa",
                       state: "HIDDEN",
                       courseId: courseId,
-                      content: "##Ceci est le cotnenu par défault",
+                      content: "##Ceci est le contenu par défault",
                     },
                   });
                   redirect(
