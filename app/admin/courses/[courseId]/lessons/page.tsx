@@ -9,10 +9,9 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getRequiredAuthSession } from "@/lib/auth";
 import { notFound, redirect, useParams } from "next/navigation";
-import { LessonItem } from "./AdminLessonItem";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { prisma } from "@/lib/db/prisma";
+import { AdminLessonSortable } from "./AdminLessonSortable";
 
 async function LessonsPage({ params }: { params: { courseId: string } }) {
   const session = await getRequiredAuthSession();
@@ -36,14 +35,8 @@ async function LessonsPage({ params }: { params: { courseId: string } }) {
             <CardTitle>Lessons</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col gap-2">
-            {course.lessons.map((lesson) => (
-              <Link
-                key={lesson.id}
-                href={`/admin/courses/${lesson.courseId}/lessons/${lesson.id}/edit`}
-              >
-                <LessonItem key={lesson.id} lesson={lesson} />
-              </Link>
-            ))}
+            <AdminLessonSortable items={course.lessons} />
+
             <form>
               <Button
                 formAction={async () => {
@@ -62,7 +55,7 @@ async function LessonsPage({ params }: { params: { courseId: string } }) {
                   const lesson = await prisma.lesson.create({
                     data: {
                       name: "New lesson",
-                      rank: 8,
+                      rank: "aaazaa",
                       state: "HIDDEN",
                       courseId: courseId,
                       content: "##Ceci est le cotnenu par défault",
