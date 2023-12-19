@@ -18,9 +18,7 @@ async function ExplorerPage() {
       </LayoutHeader>
       <LayoutContent className="grid grid-cols-1 gap-4 md:grid-cols-2 ">
         {courses.map((course) => (
-          <Link href={`/courses/${course.id}`}>
-            <CourseCard key={course.id} course={course} />
-          </Link>
+          <CourseCard key={course.id} course={course} />
         ))}
       </LayoutContent>
     </Layout>
