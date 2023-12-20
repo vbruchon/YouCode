@@ -99,7 +99,7 @@ export const Course = async ({ course, userId }: CourseProps) => {
         <CardContent>
           {course.lessons.map((lesson) => (
             <Link
-              href={`/courses/${course.id}/lesson/${lesson.id}`}
+              href={`/courses/${course.id}/lessons/${lesson.id}`}
               key={lesson.id}
             >
               <LessonItem lesson={lesson} />

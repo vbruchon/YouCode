@@ -1,6 +1,7 @@
-import { CircleDashed, CircleEllipsis, CheckCircle } from "lucide-react";
+import { CircleDashed, CircleEllipsis, CheckCircle, Globe } from "lucide-react";
 import { Typography } from "@/components/ui/Typography";
 import { CourseLessonItem } from "../../course.query";
+import Link from "next/link";
 
 export type LessonItemProps = {
   lesson: CourseLessonItem;
@@ -21,9 +22,16 @@ export const LessonItem = ({ lesson }: LessonItemProps) => {
   const icon = getLessonIcon(lesson.progress);
 
   return (
-    <div className="flex items-center p-6 transition-colors border rounded hover:bg-accent border-border bg-card">
-      <div className="mr-4">{icon}</div>
-      <Typography variant="large">{lesson.name}</Typography>
-    </div>
+    <Link href={`/courses/${lesson.courseId}/lessons/${lesson.id}`}>
+      <div className="flex items-center p-6 transition-colors border rounded hover:bg-accent border-border bg-card">
+        <div className="mr-4">{icon}</div>
+        <Typography variant="small">{lesson.name}</Typography>
+        {lesson.state === "PUBLIC" && (
+          <div title="Public" className="ml-4">
+            <Globe size={16} />
+          </div>
+        )}
+      </div>
+    </Link>
   );
 };

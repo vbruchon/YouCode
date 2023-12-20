@@ -33,6 +33,8 @@ export const getCourse = async ({
         select: {
           id: true,
           name: true,
+          courseId: true,
+          state: true,
           users: {
             where: {
               userId,
