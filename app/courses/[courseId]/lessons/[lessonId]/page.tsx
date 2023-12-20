@@ -2,8 +2,8 @@ import { getRequiredAuthSession } from "@/lib/auth";
 import { getLesson } from "./lesson.query";
 import { prisma } from "@/lib/db/prisma";
 import { notFound } from "next/navigation";
-import { LessonNavigation } from "./LessonNavigation";
-import { Lesson } from "./Lesson";
+import { LessonNavigation } from "./_components/LessonNavigation";
+import { Lesson } from "./_components/Lesson";
 
 export default async function LessonPage({
   params,

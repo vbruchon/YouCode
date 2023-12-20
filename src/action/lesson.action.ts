@@ -3,7 +3,7 @@ import { ServerError, authentificatedAction } from "@/lib/safe-action";
 import { LessonFormSchema } from "../schema/lesson.shema";
 import { z } from "zod";
 import { prisma } from "@/lib/db/prisma";
-import { Course } from "../../app/courses/[courseId]/Course";
+import { Course } from "../../app/courses/[courseId]/_components/Course";
 import { getTheMiddleRank } from "@/lib/getTheMiddleRank";
 
 const LessonActionEditSchema = z.object({

@@ -2,7 +2,7 @@ import { getRequiredAuthSession } from "@/lib/auth";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCourse } from "../../../courses/[courseId]/course.query";
 import { CourseDialog } from "./CourseDialog";
-import { Course } from "../../../courses/[courseId]/Course";
+import { Course } from "../../../courses/[courseId]/_components/Course";
 
 async function CoursePage({ params }: { params: { courseId: string } }) {
   const session = await getRequiredAuthSession();

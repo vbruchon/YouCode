@@ -2,7 +2,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Loader } from "@/components/ui/loader";
 import { Skeleton } from "@/components/ui/skeleton";
-import { LessonItemPlaceholder } from "./lessons/[lessonId]/LessonItemPlaceholder";
+import { LessonItemPlaceholder } from "../lessons/[lessonId]/_components/LessonItemPlaceholder";
 
 export const CoursePlaceholder = async () => {
   return (

@@ -5,7 +5,7 @@ import {
   DialogHeader,
 } from "@/components/ui/dialog";
 import router from "next/router";
-import { CoursePlaceholder } from "../../../courses/[courseId]/CoursePlaceholder";
+import { CoursePlaceholder } from "../../../courses/[courseId]/_components/CoursePlaceholder";
 
 export default function CourseDialogLoading() {
   return (

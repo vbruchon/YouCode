@@ -9,8 +9,9 @@ import React from "react";
 import { CourseCard } from "../courses/CourseCard";
 import { getAllCourses } from "../courses/courses.query";
 
-async function ExplorerPage() {
+export default async function ExplorerPage() {
   const courses = await getAllCourses();
+
   return (
     <Layout>
       <LayoutHeader>
@@ -24,5 +25,3 @@ async function ExplorerPage() {
     </Layout>
   );
 }
-
-export default ExplorerPage;

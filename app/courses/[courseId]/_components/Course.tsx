@@ -4,8 +4,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Typography } from "@/components/ui/Typography";
 import { MarkdownProse } from "@/components/features/mdx/MarkdownProse";
 import Link from "next/link";
-import { CourseType } from "./course.query";
-import { LessonItem } from "./lessons/[lessonId]/LessonItem";
+import { CourseType } from "../course.query";
+import { LessonItem } from "../lessons/[lessonId]/_components/LessonItem";
 import { Button } from "@/components/ui/button";
 import { getRequiredAuthSession } from "@/lib/auth";
 import { prisma } from "@/lib/db/prisma";
@@ -20,8 +20,8 @@ export type CourseProps = {
 export const Course = async ({ course, userId }: CourseProps) => {
   const isLogin = Boolean(userId);
   return (
-    <div>
-      <Card className="hover:bg-accent">
+    <div className="flex max-w-3xl gap-4">
+      <Card className="w-1/2 hover:bg-accent">
         <CardHeader className="flex flex-row gap-3 space-y-0">
           <Avatar>
             <AvatarFallback>{course.name[0]}</AvatarFallback>
@@ -92,18 +92,13 @@ export const Course = async ({ course, userId }: CourseProps) => {
           <MarkdownProse content={course.presentation} />
         </CardContent>
       </Card>
-      <Card className="mt-8">
+      <Card className="flex-1">
         <CardHeader>
           <CardTitle>Lessons</CardTitle>
         </CardHeader>
         <CardContent>
           {course.lessons.map((lesson) => (
-            <Link
-              href={`/courses/${course.id}/lessons/${lesson.id}`}
-              key={lesson.id}
-            >
-              <LessonItem lesson={lesson} />
-            </Link>
+            <LessonItem lesson={lesson} key={lesson.id} />
           ))}
         </CardContent>
       </Card>

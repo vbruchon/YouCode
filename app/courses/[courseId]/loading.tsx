@@ -7,8 +7,8 @@ import {
 import { getRequiredAuthSession } from "@/lib/auth";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCourse } from "./course.query";
-import { Course } from "./Course";
-import { CoursePlaceholder } from "./CoursePlaceholder";
+import { Course } from "./_components/Course";
+import { CoursePlaceholder } from "./_components/CoursePlaceholder";
 
 export default async function CoursePageLoader() {
   return (

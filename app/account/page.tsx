@@ -1,7 +1,7 @@
 import LogOutButton from "@/components/features/auth/LogoutButton";
 import { Typography } from "@/components/ui/Typography";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -10,14 +10,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Loader } from "@/components/ui/loader";
 import { getAuthSession } from "@/lib/auth";
-import { useMutation } from "@tanstack/react-query";
-import { LogOut } from "lucide-react";
-import { signOut } from "next-auth/react";
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 const DEFAULT_AVATAR = "/images/defaultAvatar.png";
 
 export default async function AccountPage() {

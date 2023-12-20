@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/dialog";
 import { usePathname, useRouter } from "next/navigation";
 import { CourseType } from "../../../courses/[courseId]/course.query";
-import { LessonItem } from "../../../courses/[courseId]/lessons/[lessonId]/LessonItem";
+import { LessonItem } from "../../../courses/[courseId]/lessons/[lessonId]/_components/LessonItem";
 import { PropsWithChildren } from "react";
 
 export type CourseDialogProps = PropsWithChildren<{

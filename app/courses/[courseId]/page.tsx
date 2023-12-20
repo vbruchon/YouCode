@@ -7,7 +7,7 @@ import {
 import { getRequiredAuthSession } from "@/lib/auth";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCourse } from "./course.query";
-import { Course } from "./Course";
+import { Course } from "./_components/Course";
 
 async function CoursePage({ params }: { params: { courseId: string } }) {
   const session = await getRequiredAuthSession();
@@ -29,7 +29,7 @@ async function CoursePage({ params }: { params: { courseId: string } }) {
     <Layout>
       <LayoutHeader></LayoutHeader>
       <LayoutContent>
-        {course && <Course course={course} userId={session.user.id}></Course>}
+        {course && <Course course={course} userId={session.user.id} />}
       </LayoutContent>
     </Layout>
   );
