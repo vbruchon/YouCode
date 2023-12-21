@@ -32,10 +32,10 @@ export const Course = async ({ course, userId }: CourseProps) => {
               height={120}
             />
           </Avatar>
-          <div className="flex flex-col flex-1 gap-3">
+          <div className="flex flex-1 flex-col gap-3">
             <CardTitle className="text-3xl">{course.name}</CardTitle>
-            <div className="flex flex-row items-center w-full gap-2">
-              <Avatar className="w-10 h-10">
+            <div className="flex w-full flex-row items-center gap-2">
+              <Avatar className="h-10 w-10">
                 <AvatarFallback>{course.name[0]}</AvatarFallback>
                 {course.creator.image && (
                   <AvatarImage src={course.creator.image} />

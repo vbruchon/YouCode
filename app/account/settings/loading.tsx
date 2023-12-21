@@ -18,15 +18,15 @@ export default async function SettingProfilLoadingPage() {
           <CardContent className="p-4">
             <form className="flex flex-col gap-6">
               <div className="flex flex-col gap-3">
-                <Skeleton className="w-12 h-4" />
+                <Skeleton className="h-4 w-12" />
 
-                <Skeleton className="w-full h-8" />
+                <Skeleton className="h-8 w-full" />
               </div>
               <div className="flex flex-col gap-3">
-                <Skeleton className="w-12 h-4" />
-                <Skeleton className="w-full h-8" />
+                <Skeleton className="h-4 w-12" />
+                <Skeleton className="h-8 w-full" />
               </div>
-              <Skeleton className="w-full h-9" />
+              <Skeleton className="h-9 w-full" />
             </form>
           </CardContent>
         </Card>

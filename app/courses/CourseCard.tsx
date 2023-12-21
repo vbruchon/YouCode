@@ -13,14 +13,14 @@ export const CourseCard = (props: CourseCardProps) => {
     <Link href={`/courses/${props.course.id}`}>
       <Card className="hover:bg-accent">
         <CardHeader className="flex flex-row gap-3 space-y-0">
-          <Avatar className="rounded h-14 w-14">
+          <Avatar className="h-14 w-14 rounded">
             <AvatarFallback>{props.course.name[0]}</AvatarFallback>
             {props.course.img && <AvatarImage src={props.course.img} />}
           </Avatar>
-          <div className="flex flex-col flex-1 gap-3">
+          <div className="flex flex-1 flex-col gap-3">
             <CardTitle>{props.course.name}</CardTitle>
-            <div className="flex flex-row-reverse items-center w-full gap-2">
-              <Avatar className="w-8 h-8">
+            <div className="flex w-full flex-row-reverse items-center gap-2">
+              <Avatar className="h-8 w-8">
                 <AvatarFallback>{props.course.name[0]}</AvatarFallback>
                 {props.course.creator.image && (
                   <AvatarImage src={props.course.creator.image} />
@@ -36,29 +36,3 @@ export const CourseCard = (props: CourseCardProps) => {
     </Link>
   );
 };
-
-/* 
-
-
-<Card className="transition-colors hover:bg-accent">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <Avatar className="rounded">
-                      <AvatarFallback>{course.name[0]}</AvatarFallback>
-                      {course.img && (
-                        <AvatarImage
-                          src={course.img}
-                          alt={course.name}
-                          width={200}
-                          height={200}
-                        />
-                      )}
-                    </Avatar>
-                    <CardTitle>{course.name}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <Typography>{course.presentation}</Typography>
-                  <Typography>{author?.name}</Typography>
-                </CardContent>
-              </Card>*/

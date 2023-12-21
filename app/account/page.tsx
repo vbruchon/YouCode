@@ -27,7 +27,7 @@ export default async function AccountPage() {
       <Typography variant="h1" className="my-10 text-center">
         My Account
       </Typography>
-      <Card className="max-w-lg m-auto mt-4">
+      <Card className="m-auto mt-4 max-w-lg">
         <CardHeader className="flex flex-col items-center gap-4 space-y-0">
           <Avatar className="mr-4 h-36 w-36">
             <AvatarFallback>{user.name?.[0]}</AvatarFallback>

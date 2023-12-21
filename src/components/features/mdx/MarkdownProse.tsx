@@ -6,7 +6,7 @@ export type MarkdownProseProps = {
 
 export const MarkdownProse = (props: MarkdownProseProps) => {
   return (
-    <Markdown className="prose lg:prose-lg dark:prose-invert">
+    <Markdown className="prose dark:prose-invert lg:prose-lg">
       {props.content}
     </Markdown>
   );

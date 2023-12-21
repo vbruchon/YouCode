@@ -15,7 +15,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <Card className="max-w-lg m-auto mt-4">
+    <Card className="m-auto mt-4 max-w-lg">
       <CardHeader>
         <CardTitle>Sorry an error occured when fetching your courses</CardTitle>
       </CardHeader>

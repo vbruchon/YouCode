@@ -14,7 +14,7 @@ export default async function AdminPage() {
     <Layout>
       <LayoutTitle>Admin Page</LayoutTitle>
       <LayoutContent>
-        <Card className="max-w-lg mx-auto mt-4 ">
+        <Card className="mx-auto mt-4 max-w-lg">
           <Link href="/admin/courses">
             <CardHeader className="flex flex-col items-center gap-4 space-y-0">
               <CardTitle>My Courses</CardTitle>

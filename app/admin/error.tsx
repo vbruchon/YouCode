@@ -18,7 +18,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <Card className="max-w-lg m-auto mt-4">
+    <Card className="m-auto mt-4 max-w-lg">
       <CardHeader>
         <CardTitle>
           You do not have the necessary permissions to access this section{" "}

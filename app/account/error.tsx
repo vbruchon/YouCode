@@ -16,7 +16,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <Card className="max-w-lg m-auto mt-4">
+    <Card className="m-auto mt-4 max-w-lg">
       <CardHeader>
         <CardTitle>You need to be logged to view this page !</CardTitle>
       </CardHeader>

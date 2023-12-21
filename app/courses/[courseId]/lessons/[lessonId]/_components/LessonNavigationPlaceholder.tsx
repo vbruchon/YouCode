@@ -8,10 +8,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export const LessonNavigationPlaceholder = () => {
   return (
-    <Card className="flex-1 max-w-xs">
+    <Card className="max-w-xs flex-1">
       <CardHeader>
         <CardTitle>
-          <Skeleton className="w-40 h-4 " />
+          <Skeleton className="h-4 w-40" />
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-2 ">

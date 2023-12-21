@@ -23,7 +23,7 @@ export const LessonItem = ({ lesson }: LessonItemProps) => {
 
   return (
     <Link href={`/courses/${lesson.courseId}/lessons/${lesson.id}`}>
-      <div className="flex items-center p-6 transition-colors border rounded hover:bg-accent border-border bg-card">
+      <div className="flex items-center rounded border border-border bg-card p-6 transition-colors hover:bg-accent">
         <div className="mr-4">{icon}</div>
         <Typography variant="small">{lesson.name}</Typography>
         {lesson.state === "PUBLIC" && (

@@ -4,7 +4,7 @@ import { Loader } from "@/components/ui/loader";
 export default function AdminLoading() {
   return (
     <Layout>
-      <LayoutContent className="flex items-center justify-center w-full h-full">
+      <LayoutContent className="flex h-full w-full items-center justify-center">
         <Loader size={32} />
       </LayoutContent>
     </Layout>

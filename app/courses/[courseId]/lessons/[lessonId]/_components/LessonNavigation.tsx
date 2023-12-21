@@ -25,7 +25,7 @@ export const LessonNavigation = async ({
   }
 
   return (
-    <Card className="flex-1 max-w-xs">
+    <Card className="max-w-xs flex-1">
       <CardHeader>
         <CardTitle>Lessons Navigation</CardTitle>
       </CardHeader>

@@ -11,7 +11,7 @@ export const LessonItemPlaceholder = () => {
       )}
     >
       <CircleDashed size={16} />
-      <Skeleton className="w-2/4 h-8 mr-5" />
+      <Skeleton className="mr-5 h-8 w-2/4" />
     </div>
   );
 };

@@ -9,8 +9,8 @@ import { AuthButton } from "../features/auth/AuthButton";
 export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container flex items-center h-16 space-x-4 sm:justify-between sm:space-x-0">
-        <div className="flex items-center flex-1 gap-2 md:gap-10">
+      <div className="container flex h-16 items-center  space-x-4 sm:justify-between sm:space-x-0">
+        <div className="flex flex-1 items-center gap-2 md:gap-10">
           <Image
             src={"/images/you-code.svg"}
             width={50}
@@ -22,7 +22,7 @@ export function Header() {
           </Typography>
         </div>
 
-        <div className="flex items-center justify-end flex-1 space-x-12">
+        <div className="flex flex-1 items-center justify-end space-x-12">
           <div className="flex justify-center gap-4">
             <Typography
               as={Link}

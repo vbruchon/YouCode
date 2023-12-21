@@ -132,7 +132,7 @@ async function AdminCoursePage({
             </Table>
           </CardContent>
         </Card>
-        <Card className="flex-1 mt-8 lg:mt-0">
+        <Card className="mt-8 flex-1 lg:mt-0">
           <CardHeader>
             <div className="flex items-center">
               {course.img && (

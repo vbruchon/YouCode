@@ -28,7 +28,7 @@ export const CourseDialog = ({ course, children }: CourseDialogProps) => {
         router.back();
       }}
     >
-      <DialogContent className="max-w-3xl max-h-screen overflow-auto">
+      <DialogContent className="max-h-screen max-w-3xl overflow-auto">
         <DialogHeader>
           <DialogTitle>{course.name}</DialogTitle>
         </DialogHeader>

@@ -14,7 +14,7 @@ export type LessonItemProps = {
 
 export const AdminLessonItem = ({ lesson }: LessonItemProps) => {
   return (
-    <div className="flex items-center p-6 transition-colors border rounded hover:bg-accent border-border bg-card">
+    <div className="flex items-center rounded border border-border bg-card p-6 transition-colors hover:bg-accent">
       <Typography variant="large">{lesson.name}</Typography>
       <Badge className="ml-auto">{lesson.state}</Badge>
     </div>
@@ -43,7 +43,7 @@ export const AdminLessonItemSortable = ({ lesson, index }: LessonItemProps) => {
       href={`/admin/courses/${lesson.courseId}/lessons/${lesson.id}/edit`}
     >
       <div ref={setNodeRef} style={style} {...attributes}>
-        <div className="flex items-center p-6 transition-colors border rounded gap-x-4 hover:bg-accent border-border bg-card">
+        <div className="flex items-center gap-x-4 rounded border border-border bg-card p-6 transition-colors hover:bg-accent">
           <Typography variant="large">{lesson.name}</Typography>
           <Badge className="ml-auto">{lesson.state}</Badge>
           <div

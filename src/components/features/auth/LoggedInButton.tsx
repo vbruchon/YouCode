@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import Link from "next/link";
 import { Typography } from "@/components/ui/Typography";
+import { cn } from "@/lib/utils";
 
 export type LoggedInButtonProps = {
   user: Session["user"];
@@ -43,8 +44,14 @@ export const LoggedInButton = (props: LoggedInButtonProps) => {
     <DropdownMenu>
       <AlertDialog>
         <DropdownMenuTrigger>
-          <div className="flex items-center p-2 bg-transparent border border-gray-500 rounded-lg shadow-sm hover:cursor-pointer hover:bg-accent hover:text-accent-foreground">
-            <Avatar className="w-8 h-8 mr-4">
+          <div
+            className={cn(
+              "flex items-center p-2",
+              "bg-transparent border border-gray-500 rounded-lg shadow-sm",
+              "hover:cursor-pointer hover:bg-accent hover:text-accent-foreground"
+            )}
+          >
+            <Avatar className="mr-4 h-8 w-8">
               <AvatarFallback>{props.user?.name?.[0]}</AvatarFallback>
               {props.user.image && (
                 <AvatarImage
@@ -75,7 +82,7 @@ export const LoggedInButton = (props: LoggedInButtonProps) => {
           <DropdownMenuSeparator />
 
           <AlertDialogTrigger asChild>
-            <DropdownMenuItem className="p-2 mb-2 bg-destructive">
+            <DropdownMenuItem className="mb-2 bg-destructive p-2">
               <LogOut size={18} className="mr-4" />
               <Typography>Logout</Typography>
             </DropdownMenuItem>
@@ -99,7 +106,7 @@ export const LoggedInButton = (props: LoggedInButtonProps) => {
               {mutation.isPending ? (
                 <Loader className="mr-2" size={16} />
               ) : (
-                <LogOut size={50} className="w-4 h-4 mr-2" />
+                <LogOut size={50} className="mr-2 h-4 w-4" />
               )}
               Logout
             </Button>

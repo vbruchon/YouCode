@@ -10,7 +10,7 @@ import { CoursePlaceholder } from "../../../courses/[courseId]/_components/Cours
 export default function CourseDialogLoading() {
   return (
     <Dialog open={true}>
-      <DialogContent className="max-w-3xl max-h-screen overflow-auto">
+      <DialogContent className="max-h-screen max-w-3xl overflow-auto">
         <DialogHeader>
           <DialogTitle>Loading ...</DialogTitle>
         </DialogHeader>

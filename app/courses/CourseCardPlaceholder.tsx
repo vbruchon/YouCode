@@ -12,11 +12,11 @@ export const CourseCardPlaceholder = () => {
             <Loader size={10} />
           </AvatarFallback>
         </Avatar>
-        <div className="flex flex-col flex-1 gap-3">
+        <div className="flex flex-1 flex-col gap-3">
           <CardTitle>
             <Skeleton className="h-4 w-80 md:w-60" />
           </CardTitle>
-          <div className="flex flex-row-reverse items-center w-full gap-2">
+          <div className="flex w-full flex-row-reverse items-center gap-2">
             <Avatar>
               <AvatarFallback>
                 <Loader size={10} />

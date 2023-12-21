@@ -115,7 +115,7 @@ export const LessonForm = ({ defaultValue }: LessonFormProps) => {
         )}
       />
 
-      <Button type="submit" className="w-1/5 mx-auto">
+      <Button type="submit" className="mx-auto w-1/5">
         Submit
       </Button>
     </Form>

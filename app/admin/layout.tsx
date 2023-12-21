@@ -8,7 +8,7 @@ export default async function AdminLayout({ children }: PropsWithChildren) {
     <>
       <div className="w-full border-b border-border/20">
         <BreadCrumb />
-        <div className="max-w-5xl px-4 py-1 mx-auto my-2">
+        <div className="mx-auto my-2 max-w-5xl px-4 py-1">
           <BackButton variant="ghost" size="sm">
             Back
           </BackButton>
