@@ -14,6 +14,7 @@ export const getLesson = async (lessonId: string, userId = "-") => {
       name: true,
       content: true,
       state: true,
+      courseId: true,
       users: {
         where: {
           id: userId,
