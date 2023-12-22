@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/card'
 import { MDXProse } from './_components/MDXRemote'
 import { ProgressButton } from './_components/ProgressButton'
+import { OpenLessonNavigationButton } from '../_components/OpenLessonNavigationButton'
 
 export default async function LessonPage({
     params: { courseId, lessonId },
@@ -43,8 +44,9 @@ export default async function LessonPage({
 
     return (
         <Card className="flex-1">
-            <CardHeader>
-                <CardTitle>{lesson?.name}</CardTitle>
+            <CardHeader className="flex-row items-center gap-2 space-y-0">
+                <OpenLessonNavigationButton />
+                <CardTitle>{lesson.name}</CardTitle>
             </CardHeader>
             <CardContent>
                 <MDXProse markdown={lesson.content} />

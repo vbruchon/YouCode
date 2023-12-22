@@ -3,6 +3,16 @@ import { getCourse } from '../../course.query'
 import { getRequiredAuthSession } from '@/lib/auth'
 import { notFound } from 'next/navigation'
 import { LessonItem } from './LessonItem'
+import {
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from '@/components/ui/sheet'
+import { Menu } from 'lucide-react'
+import LessonNavigationCard from './LessonNavigationCard'
 
 export type LessonNavigationProps = {
     courseId: string
@@ -14,22 +24,10 @@ export const LessonNavigation = async ({ courseId }: LessonNavigationProps) => {
         courseId,
         userId: session.user.id,
     })
-    const lessons = course?.lessons
 
-    if (!lessons) {
+    if (!course) {
         return notFound()
     }
 
-    return (
-        <Card className="max-w-xs flex-1">
-            <CardHeader>
-                <CardTitle>Lessons Navigation</CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-2 ">
-                {lessons.map((lesson) => (
-                    <LessonItem lesson={lesson} key={lesson.id} />
-                ))}
-            </CardContent>
-        </Card>
-    )
+    return <LessonNavigationCard course={course} />
 }

@@ -7,7 +7,7 @@ export default function LessonLayout({
     params,
 }: PropsWithChildren<{ params: { courseId: string } }>) {
     return (
-        <div className="flex items-start gap-4 p-4">
+        <div className="relative flex items-start gap-4 p-4">
             <Suspense fallback={<LessonNavigationSkeleton />}>
                 <LessonNavigation courseId={params.courseId} />
             </Suspense>
