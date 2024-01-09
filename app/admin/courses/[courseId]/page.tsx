@@ -111,34 +111,22 @@ async function AdminCoursePage({
                                             </Badge>
                                         </TableCell>
                                         <TableCell>
-                                            <DropdownMenu>
-                                                <DropdownMenuTrigger>
-                                                    <Button
-                                                        size={'sm'}
-                                                        variant={'secondary'}
-                                                    >
-                                                        Actions
-                                                    </Button>
-                                                </DropdownMenuTrigger>
-                                                <DropdownMenuContent>
-                                                    <ActionAcessButton
-                                                        courseId={
-                                                            params.courseId
-                                                        }
-                                                        user={user}
-                                                    />
-                                                </DropdownMenuContent>
-                                            </DropdownMenu>
+                                            <ActionAcessButton
+                                                courseId={params.courseId}
+                                                user={user}
+                                            />
                                         </TableCell>
                                     </TableRow>
                                 ))}
-                                <CoursePaginationButton
-                                    baseUrl={`/admin/courses/${course.id}`}
-                                    page={page}
-                                    totalPage={course._count?.users ?? 0 / 5}
-                                />
                             </TableBody>
                         </Table>
+                        <CoursePaginationButton
+                            baseUrl={`/admin/courses/${course.id}`}
+                            page={page}
+                            totalPage={Math.ceil(
+                                (course._count?.users ?? 0) / 5
+                            )}
+                        />
                     </CardContent>
                 </Card>
                 <Card className="mt-8 flex-1 lg:mt-0">
